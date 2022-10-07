@@ -1,0 +1,25 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+<div class="breadcrumbs">
+    <a href="/">Homepage</a> &raquo;
+</div>
+
+<div class="product-details">
+
+    <div>{% if watch.image %}<a href="/products/{{ watch.id }}"><img src="/images/{{ watch.image }}" alt=""></a>{% endif %}</div>
+    <div>
+        <h1>{{ watch.name }}</h1>
+        <p>€{{ watch.price }}</p>
+        <form method="POST">
+        {% if inBasket %}
+        <button disabled>Added to basket</button>
+        {% else %}
+         <button>Add to basket</button>
+        {% endif %}
+        </form>
+    </div>
+</div>
+
+{% if watch.description %}<p>{{ watch.description }}</p>{% endif %}
+{% endblock %}

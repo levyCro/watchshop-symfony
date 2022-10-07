@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Watch Shop</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		{{ encore_entry_link_tags('app') }}
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+	</head>
+	<body>
+		<header>
+		<div>
+		Watch Shop
+		</div>
+		<div>
+		{% if app.session.get('basket') %}
+		<a href="/basket">View basket 🛒</a>
+		{% endif %}
+		</div>
+		
+		<hr>
+		</header>
+		<main>
+			{% block content %}{% endblock %}
+		</main>
+		<footer>
+			<hr/>
+			<span class="copyright">&copy Crols Levy 2022</span>
+		</footer>
+	</body>
+</html>

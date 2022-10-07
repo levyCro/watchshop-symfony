@@ -1,0 +1,15 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+<h1>Homepage</h1>
+
+<div class="product-list">
+{% for watch in watches %}
+    <div>
+        {% if watch.image %}<a href="/products/{{ watch.id }}"><img src="/images/{{ watch.image }}" alt=""></a>{% endif %}
+        <h2><a href="/products/{{ watch.id }}">{{ watch.name }}</a></h2>
+        €{{ watch.price }}
+    </div>
+{% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+
+<div class="breadcrumbs">
+    <a href="/">Homepage</a> &raquo;
+</div>
+<h1>Basket</h1>
+
+<div class="basket">
+{% for watch in basket %}
+    <div>{% if watch.image %}<img src="/images/{{ watch.image }}" alt="">{% endif %}</div>
+    <div>{{ watch.name }}</div>
+    <div>€{{ watch.price | number_format(2) }}</div>
+    <div>
+        <form method="POST">
+            <button>Remove</button>
+            <input type="hidden" name="id" value="{{ watch.id }}" >
+        </form>
+    </div>
+{% endfor %}
+    <div></div>
+    <div class="total">Total</div>
+    <div class="total">€{{ total | number_format(2) }}</div>
+
+</div>
+<form action="checkout" class="basket-form">
+    <button>Proceed to checkout</button>
+</form>
+
+{% endblock %}
